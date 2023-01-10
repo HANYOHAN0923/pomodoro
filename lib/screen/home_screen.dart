@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:pomodoro_app/widget/sidebar_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -61,6 +62,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFE7626C),
+        elevation: 0,
+        leading: Builder(
+          builder: (context) => IconButton(
+            onPressed: () => Scaffold.of(context).openDrawer(),
+            icon: const Icon(
+              Icons.menu_rounded,
+              color: Color(0xFFF4EDDB),
+            ),
+          ),
+        ),
+      ),
+      drawer: const SideBar(),
       backgroundColor: Theme.of(context).backgroundColor,
       body: Column(
         children: <Widget>[

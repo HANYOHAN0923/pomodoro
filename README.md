@@ -1,16 +1,14 @@
 # pomodoro_app
 
-A new Flutter project.
+- [UI / UX Ref](https://www.behance.net/gallery/98918603/POMO-UIKIT?tracking_source=search_projects%7Cpomo+uikit)
 
-## Getting Started
+flutter_snative_splash:
+https://pub.dev/packages/flutter_native_splash
+https://velog.io/@tmdgks2222/Flutter-flutternativesplash
 
-This project is a starting point for a Flutter application.
+after_layout:
+https://velog.io/@tmdgks2222/Flutter-flutternativesplash
+https://pub.dev/packages/after_layout
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+flutter_app_first_run
+https://stackoverflow.com/questions/44740617/check-if-an-application-is-on-its-first-run-with-flutter

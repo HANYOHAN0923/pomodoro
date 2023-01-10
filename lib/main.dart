@@ -1,13 +1,40 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:pomodoro_app/msp.dart';
+import 'package:pomodoro_app/screen/guide_screen.dart';
 import 'package:pomodoro_app/screen/home_screen.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  sleep(
+    const Duration(seconds: 1),
+  );
   runApp(const MyApp());
+  FlutterNativeSplash.remove();
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool firstRun = false;
+
+  _MyAppState() {
+    MySharedPreferences.instance.getBooleanValue('isfirstRun').then(
+          (value) => setState(
+            () {
+              firstRun = value;
+            },
+          ),
+        );
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -20,7 +47,7 @@ class MyApp extends StatelessWidget {
         ),
         cardColor: const Color(0xFFF4EDDB),
       ),
-      home: const HomeScreen(),
+      home: firstRun ? const HomeScreen() : const GuideScreen(),
     );
   }
 }
