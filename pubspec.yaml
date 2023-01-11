@@ -69,6 +69,8 @@ flutter:
    - images/step2.png
    - images/step3.png
    - images/johnhan.jpeg
+   - images/circle.png
+   - images/circle_active.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

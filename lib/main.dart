@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:pomodoro_app/msp.dart';
-import 'package:pomodoro_app/screen/guide_screen.dart';
+import 'package:pomodoro_app/screen/guide_how_screen.dart';
 import 'package:pomodoro_app/screen/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -24,17 +24,28 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  late SharedPreferences prefs;
   bool firstRun = false;
 
-  _MyAppState() {
-    MySharedPreferences.instance.getBooleanValue('isfirstRun').then(
-          (value) => setState(
-            () {
-              firstRun = value;
-            },
-          ),
-        );
+  Future initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+    final isFirstRun = prefs.getBool('isFirstRun');
+    if (isFirstRun == true) {
+      setState(
+        () {
+          firstRun = true;
+        },
+      );
+    }
   }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initPrefs();
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -47,7 +58,7 @@ class _MyAppState extends State<MyApp> {
         ),
         cardColor: const Color(0xFFF4EDDB),
       ),
-      home: firstRun ? const HomeScreen() : const GuideScreen(),
+      home: firstRun ? const HomeScreen() : const GuideHowScreen(),
     );
   }
 }
