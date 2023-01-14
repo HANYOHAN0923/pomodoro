@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pomodoro_app/screen/setting_screen.dart';
 
 // ignore: camel_case_types
 class sbText extends StatelessWidget {
@@ -9,7 +10,14 @@ class sbText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SettingScreen(),
+          ),
+        );
+      },
       child: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Text(

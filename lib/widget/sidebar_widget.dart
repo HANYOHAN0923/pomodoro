@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pomodoro_app/screen/guide_how_screen.dart';
 import 'package:pomodoro_app/widget/sidebar_text_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -53,7 +54,37 @@ class SideBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(
               left: 30,
-              top: 270,
+              top: 250,
+            ),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const GuideHowScreen(),
+                  ),
+                );
+              },
+              child: Row(
+                children: const <Widget>[
+                  Icon(
+                    Icons.info_outline,
+                    color: Color(0xFF232B55),
+                  ),
+                  Text(
+                    'App Guide',
+                    style: TextStyle(
+                      color: Color(0xFF232B55),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 30,
+              top: 15,
             ),
             child: InkWell(
               onTap: () {},
@@ -68,7 +99,7 @@ class SideBar extends StatelessWidget {
                     style: TextStyle(
                       color: Color(0xFFE7626C),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
