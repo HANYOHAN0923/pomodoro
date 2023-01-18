@@ -12,3 +12,7 @@ https://pub.dev/packages/after_layout
 
 flutter_app_first_run
 https://stackoverflow.com/questions/44740617/check-if-an-application-is-on-its-first-run-with-flutter
+
+<img width="150" height="200" src="./design/type1.png">
+<img width="200" height="200" src="./design/type2.png">
+<img  width="100" height="200"src="./design/type3.png">
