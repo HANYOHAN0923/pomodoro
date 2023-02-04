@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       drawer: const SideBar(),
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Column(
         children: <Widget>[
           Flexible(
@@ -136,7 +136,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           'Pomodors',
                           style: TextStyle(
                             fontSize: 20,
-                            color: Theme.of(context).textTheme.headline1!.color,
+                            color:
+                                Theme.of(context).textTheme.displayLarge!.color,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -144,7 +145,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           '$totalPomodoros',
                           style: TextStyle(
                             fontSize: 58,
-                            color: Theme.of(context).textTheme.headline1!.color,
+                            color:
+                                Theme.of(context).textTheme.displayLarge!.color,
                             fontWeight: FontWeight.w600,
                           ),
                         ),

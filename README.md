@@ -2,7 +2,7 @@
 
 - [UI / UX Ref](https://www.behance.net/gallery/98918603/POMO-UIKIT?tracking_source=search_projects%7Cpomo+uikit)
 
-flutter_snative_splash:
+flutter_native_splash:
 https://pub.dev/packages/flutter_native_splash
 https://velog.io/@tmdgks2222/Flutter-flutternativesplash
 

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:pomodoro_app/screen/guide_how_screen.dart';
@@ -7,12 +5,12 @@ import 'package:pomodoro_app/screen/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  // OPTIONAL!!!
+  // Pass the preserve() method the value returned from WidgetsFlutterBinding.ensureInitialized() to keep the splash on screen.
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  sleep(
-    const Duration(seconds: 1),
-  );
   runApp(const MyApp());
+  // when app has initialized, make a call to remove() to remove the splash screen.
   FlutterNativeSplash.remove();
 }
 
@@ -52,9 +50,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        backgroundColor: const Color(0xFFE7626C),
+        scaffoldBackgroundColor: const Color(0xFFE7626C),
         textTheme: const TextTheme(
-          headline1: TextStyle(
+          displayLarge: TextStyle(
             color: Color(0xFF232B55),
           ),
         ),
