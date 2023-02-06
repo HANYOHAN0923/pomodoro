@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pomodoro_app/screen/guide_how_screen.dart';
+import 'package:pomodoro_app/screen/guide_main_screen.dart';
 import 'package:pomodoro_app/widget/sidebar_text_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -61,7 +61,7 @@ class SideBar extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const GuideHowScreen(),
+                    builder: (context) => GuideMainScreen(),
                   ),
                 );
               },

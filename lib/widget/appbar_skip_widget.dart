@@ -7,7 +7,7 @@ class AppbarSkip extends StatelessWidget with PreferredSizeWidget {
 
   void skipTutorial() async {
     final prefs = await SharedPreferences.getInstance();
-    prefs.setBool('isFirstRun', true);
+    prefs.setBool('isFirstRun', false);
   }
 
   @override

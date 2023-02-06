@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:pomodoro_app/screen/guide_how_screen.dart';
+import 'package:pomodoro_app/screen/guide_main_screen.dart';
 import 'package:pomodoro_app/screen/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,15 +23,15 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late SharedPreferences prefs;
-  bool firstRun = false;
+  bool firstRun = true;
 
-  Future initPrefs() async {
+  void initPrefs() async {
     prefs = await SharedPreferences.getInstance();
     final isFirstRun = prefs.getBool('isFirstRun');
-    if (isFirstRun == true) {
+    if (isFirstRun == false) {
       setState(
         () {
-          firstRun = true;
+          firstRun = false;
         },
       );
     }
@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
         ),
         cardColor: const Color(0xFFF4EDDB),
       ),
-      home: firstRun ? const HomeScreen() : const GuideHowScreen(),
+      home: firstRun ? GuideMainScreen() : const HomeScreen(),
     );
   }
 }
