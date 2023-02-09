@@ -27,13 +27,14 @@ class SideBar extends StatelessWidget {
             onDetailsPressed: () {
               print("Pressed");
             },
-            decoration: const BoxDecoration(
-                color: Color(0xFFE7626C) //Color(0xFF232b55),
-                /* borderRadius: BorderRadius.only(
+            decoration: BoxDecoration(
+              color: Theme.of(context)
+                  .scaffoldBackgroundColor, //Color(0xFF232b55),
+              /* borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(40.0),
                 bottomRight: Radius.circular(40.0),
               ), */
-                ),
+            ),
           ),
           const sbText(text: "SETTINGS"),
           const sbText(text: "STATS"),
@@ -66,15 +67,15 @@ class SideBar extends StatelessWidget {
                 );
               },
               child: Row(
-                children: const <Widget>[
+                children: <Widget>[
                   Icon(
                     Icons.info_outline,
-                    color: Color(0xFF232B55),
+                    color: Theme.of(context).textTheme.displaySmall!.color,
                   ),
                   Text(
                     'App Guide',
                     style: TextStyle(
-                      color: Color(0xFF232B55),
+                      color: Theme.of(context).textTheme.displaySmall!.color,
                     ),
                   )
                 ],
