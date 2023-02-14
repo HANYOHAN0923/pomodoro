@@ -120,15 +120,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           ? Icons.dark_mode
                           : Icons.light_mode),
                       onPressed: () {
-                        print(Theme.of(context).scaffoldBackgroundColor);
-                        setState(
-                          () {
-                            themeNotifier.value =
-                                themeNotifier.value == ThemeMode.light
-                                    ? ThemeMode.dark
-                                    : ThemeMode.light;
-                          },
-                        );
+                        themeNotifier.value =
+                            themeNotifier.value == ThemeMode.light
+                                ? ThemeMode.dark
+                                : ThemeMode.light;
                       },
                     ),
                   ],

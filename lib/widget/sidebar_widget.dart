@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pomodoro_app/screen/guide_main_screen.dart';
 import 'package:pomodoro_app/widget/sidebar_text_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SideBar extends StatelessWidget {
+class SideBar extends StatefulWidget {
   const SideBar({super.key});
 
+  @override
+  State<SideBar> createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar> {
   onTextTap() async {
     final Uri url = Uri.parse("http://johnhan0923.dothome.co.kr/");
     await launchUrl(url);
+  }
+
+  late final ImagePicker _picker = ImagePicker();
+  late PickedFile? _image;
+
+  Future _getImage() async {
+    PickedFile? image = await (_picker.getImage(source: ImageSource.gallery));
+    setState(() {
+      _image = image;
+    });
   }
 
   @override
@@ -18,15 +34,18 @@ class SideBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           UserAccountsDrawerHeader(
-            currentAccountPicture: const CircleAvatar(
-              backgroundImage: AssetImage('images/johnhan.jpeg'),
-              backgroundColor: Colors.white,
+            currentAccountPicture: InkWell(
+              onTap: _getImage,
+              child: CircleAvatar(
+                backgroundImage: _image == null
+                    ? const AssetImage('images/johnhan.jpeg')
+                    : AssetImage(_image!.path),
+                backgroundColor: Colors.white,
+              ),
             ),
             accountName: const Text("John Han"),
             accountEmail: const Text("gksdygks2124@gmail.com"),
-            onDetailsPressed: () {
-              print("Pressed");
-            },
+            onDetailsPressed: () {},
             decoration: BoxDecoration(
               color: Theme.of(context)
                   .scaffoldBackgroundColor, //Color(0xFF232b55),
@@ -62,7 +81,7 @@ class SideBar extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => GuideMainScreen(),
+                    builder: (context) => const GuideMainScreen(),
                   ),
                 );
               },

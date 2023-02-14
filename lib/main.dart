@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     if (firstRun) {
-      return GuideMainScreen();
+      return const GuideMainScreen();
     }
     return const HomeScreen();
   }
